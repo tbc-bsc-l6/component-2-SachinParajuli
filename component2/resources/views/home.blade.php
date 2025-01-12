@@ -3,5 +3,5 @@
         Home Page
     </x-slot:heading>
     
-    <h1>Hello Home Page</h1>
+    <h1>{{$greeting}} Home Page</h1>
 </x-layout>
