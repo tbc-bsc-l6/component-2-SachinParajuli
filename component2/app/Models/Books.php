@@ -2,37 +2,18 @@
 
 namespace App\Models;
 use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Books{
-    public static function all() : array
-    {
-        return [
-            [
-                'id' => 1,
-                'title' => 'One Piece',
-                'price' => '$300'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Naruto',
-                'price' => '$270' 
-            ],
-            [
-                'id' => 3,
-                'title' => 'Bleach',
-                'price' => '$240'
-            ]
-        ];
-    }
+class Books extends Model{
+    use HasFactory;
+    protected $table = 'Books';
 
-    public static function find(int $id) : array
-    {
-        $book = Arr::first(static::all(), fn($book) => $book['id'] == $id);
-
-        if(!$book){
-            abort(404, "The book you're searching isnt available");
-        }
-
+    protected $fillable = ['title','price'];
+    
+    public function author(){
+        return $this->BelongsTo(Author::class);
     }
 }
 
