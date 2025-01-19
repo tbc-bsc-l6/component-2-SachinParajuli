@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Books extends Model{
     use HasFactory;
-    protected $table = 'Books';
+    protected $table = 'books';
 
     protected $fillable = ['title','price'];
     
     public function author(){
         return $this->BelongsTo(Author::class);
     }
+
+    public function category(){
+        return $this->belongsToMany(Category::class, 'book_categories', 'books_id', 'category_id');
+    }
 }
-
-
-
-
 ?>
