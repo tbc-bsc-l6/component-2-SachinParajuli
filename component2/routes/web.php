@@ -20,6 +20,7 @@ Route::get('/books/{book}/edit', [BookController::class, 'edit'])
 Route::patch('/books/{book}', [BookController::class, 'update']);
 Route::delete('/books/{book}', [BookController::class, 'destroy']);
 
+
 //AUTH
 
 Route::get('/register', [RegistrationUserController::class, 'create']);

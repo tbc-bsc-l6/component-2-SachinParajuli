@@ -3,5 +3,5 @@
         Home Page
     </x-slot:heading>
     
-    <h1>Home Page</h1>
+    <div></div><h1>Home Page</h1>
 </x-layout>

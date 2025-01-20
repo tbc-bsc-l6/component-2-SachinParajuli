@@ -63,13 +63,15 @@ class BookController extends Controller
     public function update(Books $book){
         request()->validate([
             'title'=>['required','min:3'],
-            'price'=>['required']
+            'price'=>['required']   
         ]);
 
         $book->update([
             'title'=>request('title'),
             'price'=>request('price')
         ]);
+
+        $book->save();
         return redirect('/books/'.$book->id);
     }
 

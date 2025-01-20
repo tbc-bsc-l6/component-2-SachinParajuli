@@ -8,6 +8,12 @@
     <p>
         This book prices {{$book->price}}.
     </p>
+    <p>
+        The writer is {{$book->author->user->name}}.
+    </p>
+    <p>
+        The Studio is {{$book->author->name}}.
+    </p>
 
     @can('edit-book', $book)
         <p class='mt-6'>

@@ -44,25 +44,7 @@
                   @enderror
                 </div>
               </div>
-
-              <div class="sm:col-span-4">
-                <label for="price" class="block text-sm/6 font-medium text-gray-900">Category</label>
-                <div class="mt-2">
-                  <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                    <input type="text"
-                            name="category"
-                            id="category"
-                            value="{{$book->category->name}}"
-                            class="block min-w-0 grow py-1.5 px-3 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
-                            placeholder="What's the category?">
-                  </div>
-                  @error('category')
-                    <p class="text-xs text-red-500 font-semibold mt-1">{{$message}}</p>
-                  @enderror
-                </div>
-              </div>
-
-
+              
             </div>
           </div>
         </div>
