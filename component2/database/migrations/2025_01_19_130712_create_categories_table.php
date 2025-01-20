@@ -16,15 +16,16 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignIdFor(Books::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
 
-        Schema::create('book_categories', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(Books::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
-            $table->timestamps();
-        });
+        // Schema::create('book_categories', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignIdFor(Books::class)->constrained()->cascadeOnDelete();
+        //     $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
+        //     $table->timestamps();
+        // });
     }
 
     /**

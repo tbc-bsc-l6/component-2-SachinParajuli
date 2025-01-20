@@ -28,6 +28,22 @@
                 </div>
               </x-form-field>
 
+              <x-form-field>
+                <x-form-label for="category">Category</x-form-label>
+                <div class="mt-2">
+                    <x-form-input type="text" name="category" id="category" placeholder="What's the category???"/>
+                  <x-form-error name='category' />
+                </div>
+              </x-form-field>
+
+              <x-form-field>
+                <x-form-label for="studio">Studio</x-form-label>
+                <div class="mt-2">
+                    <x-form-input type="text" name="studio" id="studio" placeholder="What's the studio???"/>
+                  <x-form-error name='studio' />
+                </div>
+              </x-form-field>
+
             </div>
           </div>
         </div>

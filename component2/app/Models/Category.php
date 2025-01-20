@@ -9,8 +9,9 @@ class Category extends Model
 {
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
+    protected $guarded = [];
 
     public function book(){
-        return $this->belongsToMany(Books::class, 'book_categories', 'category_id', 'books_id');
+        return $this->belongsTo(Books::class);
     }
 }

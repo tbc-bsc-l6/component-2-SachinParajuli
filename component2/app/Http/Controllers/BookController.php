@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Author;
 use App\Models\Books;
+use App\Models\Category;
 use App\Models\User;
+use Illuminate\Database\Schema\ForeignIdColumnDefinition;
+use Illuminate\Database\Schema\ForeignKeyDefinition;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,14 +30,28 @@ class BookController extends Controller
     public function store(){
         request()->validate([
             'title'=>['required','min:3'],
-            'price'=>['required']
+            'price'=>['required'],
+            'category'=>['required'],
+            'studio'=>['required']
         ]);
-    
-        Books::create([
+        
+        $aut = Author::create([
+            'name'=>request('studio'),
+            'user_id'=>Auth::id()
+        ]);
+        
+        $book = Books::create([
             'title' => request('title'),
             'price' => request('price'),
-            'author_id' => 1
+            'author_id' => $aut->id,
         ]);
+
+        Category::create([
+            'name'=>request('category'),
+            'books_id'=> $book->id
+        ]);
+
+
     
         return redirect('/books');
     }
