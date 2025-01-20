@@ -7,7 +7,7 @@ use App\Http\Controllers\SessionController;
 
 Route::view('/','home');
 Route::view('/about','about');
-Route::view('/contact','contact');
+Route::view('/profile','profile');
 
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/create', [BookController::class, 'create']);

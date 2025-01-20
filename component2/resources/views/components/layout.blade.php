@@ -22,7 +22,7 @@
               <x-nav-link href="/" :active="request() -> is('/')">Home</x-nav-link>
               <x-nav-link href="/books" :active="request() -> is('books')">Book</x-nav-link>
               <x-nav-link href="/about" :active="request() -> is('about')">About</x-nav-link>
-              <x-nav-link href="/contact" :active="request() -> is('contact')">Contact</x-nav-link> 
+              <x-nav-link href="/profile" :active="request() -> is('profile')">Profile</x-nav-link> 
             </div> 
           </div>
         </div> 
@@ -94,12 +94,17 @@
   <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
       <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{$heading}}</h1>
-      <x-button href="/books/create">Add a book</x-button>
     </div>
   </header>
   <main>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      {{$slot}}
+    <div class="mx-auto max-w-7xl py-6  ">
+      <div class=" p-0  bg-cover bg-center " style="background-image: url('../images/home_bg.jpg');">
+        <div class="bg-black/50">
+
+          {{$slot}}
+        </div>
+          
+      </div>
     </div>
   </main> 
 </div>

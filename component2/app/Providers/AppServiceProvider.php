@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Model::preventLazyLoading(); 
+        // Model::preventLazyLoading(); 
 
         Gate::define('edit-book', function(User $user, Books $book){
             return $book->author->user->is($user);
