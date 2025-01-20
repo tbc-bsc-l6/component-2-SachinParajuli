@@ -9,7 +9,11 @@
         This book prices {{$book->price}}.
     </p>
 
-    <p class='mt-6'>
-        <x-button href='/books/{{ $book->id }}/edit'>Edit this book?</x-button>
-    </p>
+    @can('edit-book', $book)
+        <p class='mt-6'>
+            <x-button href='/books/{{ $book->id }}/edit'>Edit this book?</x-button>
+        </p>  
+        
+    @endcan
+
 </x-layout>
